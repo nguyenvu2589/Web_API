@@ -1,0 +1,51 @@
+{
+	"id": "e9d87454-80a4-5688-f105-b866d1de9a2c",
+	"name": "Hw0",
+	"description": "",
+	"order": [
+		"3ecadafd-67cb-2fc0-4e5b-3b5b0d350596",
+		"de6074ca-22d7-3ee6-b92b-f7ffcb2aa892"
+	],
+	"folders": [],
+	"timestamp": 1485323811420,
+	"owner": "1480371",
+	"public": false,
+	"requests": [
+		{
+			"id": "3ecadafd-67cb-2fc0-4e5b-3b5b0d350596",
+			"headers": "",
+			"url": "https://www.googleapis.com/books/v1/volumes?q={{Turing}}",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": "// check status for 200 \ntests[\"Status code is 200\"] = (responseCode.code = 200);\n\nif ( responseCode.code === 200){\n    try{\n        // parse response. and check every title for Turing.\n        var result = JSON.parse(responseBody);\n        for ( var i in result.items){\n            var obj = result.items[i].volumeInfo.title;\n            tests[\"Title has Turing\"] = obj.has(\"Turing\")\n        }\n        // Store ID of first book to bookID.\n        postman.setGlobalVariable(\"bookID\", result.items[0].id);\n    }\n    catch(e){\n        console.log(e);\n    }\n    \n\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1485631018990,
+			"name": "Get book infos",
+			"description": "",
+			"collectionId": "e9d87454-80a4-5688-f105-b866d1de9a2c",
+			"responses": []
+		},
+		{
+			"id": "de6074ca-22d7-3ee6-b92b-f7ffcb2aa892",
+			"headers": "",
+			"url": "https://www.googleapis.com/books/v1/volumes/{{bookID}}",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": "// check status for 200 \ntests[\"Status code is 200\"] = (responseCode.code = 200);\n//  assert the responsebody has bookID. \ntests[\"Check ID\"] = responseBody.has(globals.bookID);\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1485631078168,
+			"name": "Get Book from ID",
+			"description": "",
+			"collectionId": "e9d87454-80a4-5688-f105-b866d1de9a2c",
+			"responses": []
+		}
+	]
+}
