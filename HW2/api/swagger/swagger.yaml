@@ -1,0 +1,192 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: Car Dealership API
+# during dev, should point to your local machine
+host: localhost:10010
+# basePath prefixes all resource paths 
+basePath: /
+# 
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+paths:
+  /car:
+    x-swagger-router-controller: car
+    get:
+      operationId: getAll
+      description: get all car from database;
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/GetCarRespsone"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /car/{id}:
+    x-swagger-router-controller: car
+    get:
+      operationId: getOne
+      description: get specific car by id
+      # define the type of response for Success "200" and Error
+      parameters:
+        - name: id
+          type: integer
+          in: path
+          required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Get1Car"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    post:
+      operationId: add
+      description: add new car into database
+      parameters:
+        - name: id
+          description: Car ID
+          type: string
+          in: path
+          required: true
+        - name: model
+          description: car property
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/Car"
+      responses:
+        "200":
+          description: "success"
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    put:
+      operationId: update
+      description: update a car
+      parameters:
+        - name: id
+          description: Car ID
+          type: string
+          in: path
+          required: true
+        - name: car model
+          description: Car model
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/Car"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    delete:
+      operationId: delCar
+      description: remove car out of database
+      parameters:
+        - name: id
+          description: car id
+          type: string
+          in: path
+          required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    
+  /swagger:
+    x-swagger-pipe: swagger_raw
+# complex objects have schema definitions
+definitions:
+  GetCarRespsone:
+    required:
+      - car
+    properties:
+      car:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+            type:
+              type: string
+            model:
+              type: string
+            year:
+              type: string
+            price:
+              type: string
+              
+  ErrorResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string
+  Get1Car:
+    required:
+      - id
+    properties:
+      id:
+        type: string
+      model: 
+        type: string
+  GeneralResponse:
+    type: object
+    properties:
+      success:
+        type: number
+        description: returns 1 if successful
+      description:
+        type: string
+        description: a short comment 
+    required:
+      - success
+      - description
+  Car:
+    type: object
+    properties:
+      model:
+        type: string
+        description: model
+      year:
+        type: number
+        description: year
+      price:
+        type: number
+        description: car's price
+      type:
+        type: string
+        description: car's type
+    required:
+      - model
+      - year
+      - price
+
+  
