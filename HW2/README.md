@@ -18,3 +18,6 @@ Create a Node.js server that accepts requests and creates responses and host it 
 
  Also include some of postman test to prove all requirements have been met. 
  
+ upload  to apigeetool
+ apigeetool deploynodeapp -u "apigeeaccount" -o "organization" -e test -n ' "projectname" ' -d . -m app.js -b / "location"
+ 
