@@ -28,6 +28,10 @@ paths:
           description: Success
           schema:
             $ref: "#/definitions/GetCarRespsone"
+        "204":
+          description: Fail
+          schema:
+            $ref: "#/definitions/ErrorResponse"
         default:
           description: Error
           schema:
