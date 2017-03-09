@@ -15,7 +15,7 @@ function getgit(req, res) {
   var git = new GitHubApi({
     version: "3.0.0"
   });
-  var token = "c1895ab745183219577b3f246a6fb6eb2d169b1a";
+  var token = "GITHUB KEY";
 
   git.authenticate({
     type:"oauth",
