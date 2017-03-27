@@ -1,0 +1,179 @@
+{
+	"variables": [],
+	"info": {
+		"name": "HW4",
+		"_postman_id": "df9809f4-3b16-2abf-3f1d-be9506884adf",
+		"description": "Movies Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Full List of Movies",
+			"request": {
+				"url": "http://nguyenvu2589-test.apigee.net/homeW4/movie",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Add new movie",
+			"request": {
+				"url": "http://nguyenvu2589-test.apigee.net/homeW4/movie",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Pirates of the Caribbean\",\n\t\"year\": 2017,\n\t\"actor\": [\"Johnny Depp\" , \"Orlando Bloom\", \"Javier Bardem\"]\n}\n\t"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "ERROR: Add new movie with less than 3 actors",
+			"request": {
+				"url": "http://nguyenvu2589-test.apigee.net/homeW4/movie",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Pirates of the Caribbean\",\n\t\"year\": 2017,\n\t\"actor\": [\"Johnny Depp\" , \"Orlando Bloom\"]\n}\n\t"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Request a single movie",
+			"request": {
+				"url": "http://nguyenvu2589-test.apigee.net/homeW4/movie/book of life",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "//name",
+						"value": "Book of Life",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Pirates of the Caribbean\",\n\t\"year\": 2017,\n\t\"actor\": [\"Johnny Depp\" , \"Orlando Bloom\", \"Javier Bardem\"]\n}\n\t"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "ERROR: Request a non-existance movie",
+			"request": {
+				"url": "http://nguyenvu2589-test.apigee.net/homeW4/movie/beauty and the beast",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update movie info",
+			"request": {
+				"url": "http://nguyenvu2589-test.apigee.net/homeW4/movie/hello world 3",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"year\": 2016,\n\t\"actor\": [\"actor 1\", \"actor 2\", \"actor 3\"]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "ERROR: update on non-exist movie",
+			"request": {
+				"url": "http://nguyenvu2589-test.apigee.net/homeW4/movie/hello world",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"year\": 2016,\n\t\"actor\": [\"actor 1\", \"actor 2\", \"actor 3\"]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Movie",
+			"request": {
+				"url": "http://nguyenvu2589-test.apigee.net/homeW4/movie/hello world 3",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "ERROR: Delete a non exist Movie",
+			"request": {
+				"url": "http://nguyenvu2589-test.apigee.net/homeW4/movie/hello world",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
