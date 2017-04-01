@@ -1,0 +1,99 @@
+{
+	"variables": [],
+	"info": {
+		"name": "HW5",
+		"_postman_id": "ff516261-c390-3cdd-d022-d0dca2950e1e",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Full List of Movies without Review",
+			"request": {
+				"url": "http://nguyenvu2589-test.apigee.net/hw5/movie",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Full List of Movies Review",
+			"request": {
+				"url": "http://nguyenvu2589-test.apigee.net/hw5/movie?review=true",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get a Single movie without Review",
+			"request": {
+				"url": "http://nguyenvu2589-test.apigee.net/hw5/movie/Kong Skull Island",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get a Single movie with Review",
+			"request": {
+				"url": "http://nguyenvu2589-test.apigee.net/hw5/movie/Kong Skull Island?review=true",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "ERROR Invalid single movie request without review",
+			"request": {
+				"url": "http://nguyenvu2589-test.apigee.net/hw5/movie/The Bayby Boss",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "ERROR Invalid single movie request with review",
+			"request": {
+				"url": "https://apibaas-trial.apigee.net/nguyenvu2589/sandbox/movies/b5804129-127e-11e7-ad2c-0ad881f403bf",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "BaaS Request for a single movie",
+			"request": {
+				"url": "https://apibaas-trial.apigee.net/nguyenvu2589/sandbox/movies/b5804129-127e-11e7-ad2c-0ad881f403bf",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "BaaS Request for a review",
+			"request": {
+				"url": "https://apibaas-trial.apigee.net/nguyenvu2589/sandbox/reviews/0680f731-1696-11e7-990c-0eec2415f3df",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
