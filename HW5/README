@@ -1,0 +1,16 @@
+Assignment Five
+The purpose of this assignment is to leverage Apigee’s analytics policies to gather informa- tion about the requests being sent in by users.
+Using the information already entered to the BaaS for the previous assignment, you will add another collection of reviews that are tied to the movies. This way users can query the BaaS and get the previous information (title, year released and actors) as well as the reviews. These two entities should remain separate! Do not append the reviews to the existing movie information.
+Requirements
+• Create a collection in Apigee’s BaaS to hold reviews about existing movies.
+– A review contains the name of the reviewer, a small quote about what they thought about the movie, and their rating out of five stars.
+– The review collection should have at least one review for each movie.
+– The review can be a simple, fictitious review that you create.
+• This proxy should build upon the previous proxy in assignment four.
+Acceptance Criteria
+In previous assignments, not including a small test suite has had a minimal negative impact on grading. For this assignment, it is required. If a test suite is not included in your email or uploaded to GitHub, the assignment will not be graded.
+• Create a SoapUI/Postman/collection of curl commands to test your proxy. You should include the following requests.
+– Valid request without the review query parameter.
+– Invalid request (for a movie not in the BaaS) without the review query parameter. – Valid request with the review query parameter.
+– A request to the BaaS which returns a movie (this request does not go through the proxy).
+– A request to the BaaS which returns a review (this request does not go through the proxy).
